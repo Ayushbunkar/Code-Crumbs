@@ -6,6 +6,8 @@ import { Section } from "@/components/ui/section";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { SectionIndexBadge, ModularBlocks } from "@/components/ui/modular-blocks";
+import { ServicesSculpture } from "@/components/3d/services-sculpture";
 import { fullServicesCatalog, ServiceDetail } from "@/data/services";
 import {
   ArrowUpRight,
@@ -179,18 +181,69 @@ export default function ServicesPage() {
 
   return (
     <div className="w-full">
-      {/* Editorial Header */}
+      {/* Editorial Header with Asymmetric 3D Capability Prism */}
       <Section spacing="hero" withGrid divider="bottom">
-        <div className="max-w-4xl space-y-6">
-          <Badge variant="burnt" withDot className="font-mono text-xs">
-            Complete Practice Index
-          </Badge>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif text-charcoal tracking-tight leading-[1.06]">
-            Disciplines engineered for <span className="italic font-normal text-burnt">uncompromised</span> impact.
-          </h1>
-          <p className="editorial-lead text-charcoal-50 max-w-2xl text-lg">
-            From zero-to-one product development and autonomous AI agents to bespoke web flagships, resilient cloud backends, and ongoing technical advisory.
-          </p>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Left Column: Typography, Lead & Coordinates */}
+          <div className="lg:col-span-7 space-y-6">
+            <SectionIndexBadge number="01" label="Complete Practice Index & Specifications" />
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif text-charcoal tracking-tight leading-[1.06]">
+              Disciplines engineered for <span className="italic font-normal text-burnt">uncompromised</span> impact.
+            </h1>
+            <p className="editorial-lead text-charcoal-50 max-w-2xl text-base sm:text-lg leading-relaxed">
+              From zero-to-one product development and autonomous AI agents to bespoke web flagships, resilient cloud backends, and ongoing technical advisory.
+            </p>
+
+            {/* Architectural Telemetry Strip */}
+            <div className="pt-6 border-t border-border grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs font-mono">
+              <div>
+                <span className="text-charcoal-50 block uppercase text-[10px] tracking-wider mb-1">
+                  01 / Practice Scope
+                </span>
+                <span className="text-charcoal font-semibold text-xs sm:text-sm">
+                  5 Engineering Categories
+                </span>
+              </div>
+              <div>
+                <span className="text-charcoal-50 block uppercase text-[10px] tracking-wider mb-1">
+                  02 / Delivery Catalog
+                </span>
+                <span className="text-charcoal font-semibold text-xs sm:text-sm">
+                  28 Verified Services
+                </span>
+              </div>
+              <div>
+                <span className="text-charcoal-50 block uppercase text-[10px] tracking-wider mb-1">
+                  03 / Execution
+                </span>
+                <span className="text-burnt font-semibold text-xs sm:text-sm">
+                  Partner-Led Architecture
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Framed 3D Capability Sculpture */}
+          <div className="lg:col-span-5 relative">
+            <div className="relative border border-border bg-surface p-2 sm:p-4 shadow-card">
+              {/* Corner Architectural Crop Marks */}
+              <div className="absolute -top-1.5 -left-1.5 w-3 h-3 border-t-2 border-l-2 border-charcoal pointer-events-none" />
+              <div className="absolute -top-1.5 -right-1.5 w-3 h-3 border-t-2 border-r-2 border-charcoal pointer-events-none" />
+              <div className="absolute -bottom-1.5 -left-1.5 w-3 h-3 border-b-2 border-l-2 border-charcoal pointer-events-none" />
+              <div className="absolute -bottom-1.5 -right-1.5 w-3 h-3 border-b-2 border-r-2 border-charcoal pointer-events-none" />
+
+              {/* R3F 3D Canvas */}
+              <ServicesSculpture />
+
+              <div className="p-3 border-t border-border/70 bg-sand-50/70 flex items-center justify-between text-[11px] font-mono text-charcoal-50">
+                <div className="flex items-center gap-2">
+                  <ModularBlocks size="xs" variant="indicator" activeBlock={3} />
+                  <span className="truncate">FIG 03: CAPABILITY ARCHITECTURE PRISM</span>
+                </div>
+                <span className="text-burnt shrink-0 font-medium">[TACTILE 3D]</span>
+              </div>
+            </div>
+          </div>
         </div>
       </Section>
 
