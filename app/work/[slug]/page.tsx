@@ -6,6 +6,7 @@ import { Section } from "@/components/ui/section";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { SectionIndexBadge, ModularBlocks } from "@/components/ui/modular-blocks";
 import { projectsData } from "@/data/projects";
 import { ProjectGallery } from "@/components/portfolio/project-gallery";
 import {
@@ -80,9 +81,7 @@ export default async function ProjectDetailPage({ params }: Props) {
       <Section spacing="hero" withGrid divider="bottom">
         <div className="max-w-5xl space-y-8">
           <div className="space-y-4">
-            <Badge variant="burnt" withDot className="font-mono text-xs">
-              Architectural Case Study • {project.category}
-            </Badge>
+            <SectionIndexBadge number="00" label={`Architectural Case Study • ${project.category}`} />
             <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif text-charcoal tracking-tight leading-[1.06]">
               {project.title}
             </h1>
@@ -163,9 +162,12 @@ export default async function ProjectDetailPage({ params }: Props) {
       <Section spacing="lg" theme="sand" divider="bottom">
         <div className="max-w-6xl mx-auto space-y-6">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-mono uppercase tracking-widest text-burnt font-semibold">
-              Visual System Showcase
-            </span>
+            <div className="flex items-center gap-2">
+              <ModularBlocks size="xs" variant="indicator" activeBlock={2} />
+              <span className="text-xs font-mono uppercase tracking-widest text-burnt font-semibold">
+                Visual System Showcase
+              </span>
+            </div>
             <span className="text-xs font-mono text-charcoal-50">
               Interactive High-Fidelity Previews
             </span>
@@ -179,9 +181,7 @@ export default async function ProjectDetailPage({ params }: Props) {
       <Section spacing="lg" theme="surface" divider="bottom">
         <div className="max-w-5xl mx-auto space-y-12">
           <div>
-            <span className="text-xs font-mono uppercase text-burnt tracking-widest font-semibold block mb-2">
-              01 / Strategic Context &amp; Objective
-            </span>
+            <SectionIndexBadge number="01" label="Strategic Context & Objective" className="mb-2" />
             <h2 className="text-3xl sm:text-4xl font-serif text-charcoal tracking-tight">
               Executive Overview
             </h2>
@@ -224,9 +224,7 @@ export default async function ProjectDetailPage({ params }: Props) {
       <Section spacing="lg" theme="sand" divider="bottom">
         <div className="max-w-5xl mx-auto space-y-8">
           <div>
-            <span className="text-xs font-mono uppercase text-burnt tracking-widest font-semibold block mb-2">
-              02 / Architecture &amp; Implementation
-            </span>
+            <SectionIndexBadge number="02" label="Architecture & Implementation" className="mb-2" />
             <h2 className="text-3xl sm:text-4xl font-serif text-charcoal tracking-tight">
               Technical Blueprint
             </h2>
@@ -257,9 +255,7 @@ export default async function ProjectDetailPage({ params }: Props) {
       <Section spacing="lg" theme="surface" divider="bottom">
         <div className="max-w-5xl mx-auto space-y-8">
           <div>
-            <span className="text-xs font-mono uppercase text-burnt tracking-widest font-semibold block mb-2">
-              03 / Delivered Capabilities
-            </span>
+            <SectionIndexBadge number="03" label="Delivered Capabilities" className="mb-2" />
             <h2 className="text-3xl sm:text-4xl font-serif text-charcoal tracking-tight">
               Key Platform Features
             </h2>
@@ -294,9 +290,7 @@ export default async function ProjectDetailPage({ params }: Props) {
       <Section spacing="lg" theme="sand" divider="bottom">
         <div className="max-w-5xl mx-auto space-y-8">
           <div>
-            <span className="text-xs font-mono uppercase text-burnt tracking-widest font-semibold block mb-2">
-              04 / Hard Problems Solved
-            </span>
+            <SectionIndexBadge number="04" label="Hard Problems Solved" className="mb-2" />
             <h2 className="text-3xl sm:text-4xl font-serif text-charcoal tracking-tight">
               Development Challenges &amp; Engineering Resolutions
             </h2>
@@ -337,9 +331,7 @@ export default async function ProjectDetailPage({ params }: Props) {
         <div className="max-w-5xl mx-auto space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <span className="text-xs font-mono uppercase text-burnt tracking-widest font-semibold block mb-1">
-                05 / Verified Dependencies
-              </span>
+              <SectionIndexBadge number="05" label="Verified Dependencies" className="mb-2" />
               <h2 className="text-2xl sm:text-3xl font-serif text-charcoal">
                 Technologies &amp; Architecture
               </h2>
