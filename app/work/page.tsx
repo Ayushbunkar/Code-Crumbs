@@ -4,9 +4,10 @@ import { Metadata } from "next";
 import { Section } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
 import { SectionIndexBadge, ModularBlocks } from "@/components/ui/modular-blocks";
+import { PortfolioSculpture } from "@/components/3d/portfolio-sculpture";
 import { projectsData } from "@/data/projects";
 import { ProjectShowcase } from "@/components/portfolio/project-cards";
-import { ArrowUpRight, Compass } from "lucide-react";
+import { ArrowUpRight, Compass, Layers, Terminal } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Engineering Portfolio & Case Studies | Code&Crumbs",
@@ -17,16 +18,69 @@ export const metadata: Metadata = {
 export default function WorkPage() {
   return (
     <div className="w-full">
-      {/* Editorial Header */}
+      {/* Editorial Header with Asymmetric 3D Production Lattice */}
       <Section spacing="hero" withGrid divider="bottom">
-        <div className="max-w-4xl space-y-6">
-          <SectionIndexBadge number="02" label="Engineering Portfolio & Case Studies" />
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif text-charcoal tracking-tight leading-[1.08]">
-            Rigorous systems built for <span className="italic font-normal text-burnt">production momentum.</span>
-          </h1>
-          <p className="editorial-lead text-charcoal-50 max-w-2xl text-base sm:text-lg">
-            A verified index of enterprise ERPs, document intelligence engines, multi-agent swarms, and conversational AI simulators designed, engineered, and delivered by Code&amp;Crumbs.
-          </p>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Left Column: Typography, Lead & Coordinates */}
+          <div className="lg:col-span-7 space-y-6">
+            <SectionIndexBadge number="02" label="Engineering Portfolio & Case Studies" />
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif text-charcoal tracking-tight leading-[1.08]">
+              Rigorous systems built for <span className="italic font-normal text-burnt">production momentum.</span>
+            </h1>
+            <p className="editorial-lead text-charcoal-50 max-w-2xl text-base sm:text-lg leading-relaxed">
+              A verified index of enterprise ERPs, document intelligence engines, multi-agent swarms, and conversational AI simulators designed, engineered, and delivered by Code&amp;Crumbs.
+            </p>
+
+            {/* Architectural Telemetry Strip */}
+            <div className="pt-6 border-t border-border grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs font-mono">
+              <div>
+                <span className="text-charcoal-50 block uppercase text-[10px] tracking-wider mb-1">
+                  01 / System Archive
+                </span>
+                <span className="text-charcoal font-semibold text-xs sm:text-sm">
+                  5 Deployed Platforms
+                </span>
+              </div>
+              <div>
+                <span className="text-charcoal-50 block uppercase text-[10px] tracking-wider mb-1">
+                  02 / Code Integrity
+                </span>
+                <span className="text-charcoal font-semibold text-xs sm:text-sm">
+                  100% Strict Type Safety
+                </span>
+              </div>
+              <div>
+                <span className="text-charcoal-50 block uppercase text-[10px] tracking-wider mb-1">
+                  03 / Execution
+                </span>
+                <span className="text-burnt font-semibold text-xs sm:text-sm">
+                  Partner-Led Architecture
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Framed 3D Production Lattice Sculpture */}
+          <div className="lg:col-span-5 relative">
+            <div className="relative border border-border bg-surface p-2 sm:p-4 shadow-card">
+              {/* Corner Architectural Crop Marks */}
+              <div className="absolute -top-1.5 -left-1.5 w-3 h-3 border-t-2 border-l-2 border-charcoal pointer-events-none" />
+              <div className="absolute -top-1.5 -right-1.5 w-3 h-3 border-t-2 border-r-2 border-charcoal pointer-events-none" />
+              <div className="absolute -bottom-1.5 -left-1.5 w-3 h-3 border-b-2 border-l-2 border-charcoal pointer-events-none" />
+              <div className="absolute -bottom-1.5 -right-1.5 w-3 h-3 border-b-2 border-r-2 border-charcoal pointer-events-none" />
+
+              {/* R3F 3D Canvas */}
+              <PortfolioSculpture />
+
+              <div className="p-3 border-t border-border/70 bg-sand-50/70 flex items-center justify-between text-[11px] font-mono text-charcoal-50">
+                <div className="flex items-center gap-2">
+                  <ModularBlocks size="xs" variant="indicator" activeBlock={2} />
+                  <span className="truncate">FIG 02: PRODUCTION LATTICE MATRIX</span>
+                </div>
+                <span className="text-burnt shrink-0 font-medium">[TACTILE 3D]</span>
+              </div>
+            </div>
+          </div>
         </div>
       </Section>
 
