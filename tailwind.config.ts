@@ -51,6 +51,7 @@ const config: Config = {
         sans: ["var(--font-sans)", "system-ui", "-apple-system", "sans-serif"],
         serif: ["var(--font-serif)", "Georgia", "serif"],
         display: ["var(--font-serif)", "Georgia", "serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
       boxShadow: {
         'subtle': '0 1px 2px 0 rgba(23, 23, 23, 0.04)',

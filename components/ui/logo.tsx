@@ -70,17 +70,24 @@ export function Logo({
         >
           CRUMBS
         </span>
+
+        {/* Modular software component block signature */}
+        <span className="inline-flex items-end gap-0.5 ml-1.5 mb-1 opacity-90 group-hover:opacity-100 transition-opacity">
+          <span className={cn("block w-1.5 h-1.5", isDark ? "bg-white" : "bg-charcoal")} />
+          <span className="block w-1.5 h-2.5 bg-burnt" />
+          <span className={cn("block w-1.5 h-1.5 border", isDark ? "border-white/60" : "border-charcoal/60")} />
+        </span>
       </div>
 
       {withSubtext && (
         <span
           className={cn(
-            "font-mono uppercase mt-1 font-semibold opacity-75",
+            "font-mono uppercase mt-1 font-medium tracking-[0.2em]",
             currentSize.subtext,
             isDark ? "text-muted-foreground" : "text-charcoal-50"
           )}
         >
-          Studio [Tech & Craft]
+          Product &amp; Engineering Studio
         </span>
       )}
     </Link>

@@ -2,31 +2,50 @@
 
 import React from "react";
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import { TextReveal } from "@/components/ui/text-reveal";
 import { HeroSculpture } from "@/components/3d/hero-sculpture";
-import { ArrowUpRight, Compass, ShieldCheck } from "lucide-react";
+import { ModularBlocks, SectionIndexBadge } from "@/components/ui/modular-blocks";
+import { ArrowUpRight, Compass, Terminal, Layers } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative w-full pt-12 sm:pt-20 pb-16 sm:pb-24 overflow-hidden border-b border-border bg-sand">
+    <section className="relative w-full pt-10 sm:pt-16 pb-16 sm:pb-24 overflow-hidden border-b border-border bg-sand">
       {/* Background Architectural Grid Lines */}
-      <div className="absolute inset-0 grid-lines pointer-events-none opacity-40" />
+      <div className="absolute inset-0 grid-lines pointer-events-none opacity-30" />
+
+      {/* Subtle Top Metadata Bar */}
+      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 mb-8 sm:mb-12">
+        <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-border/80 text-[11px] font-mono text-charcoal-50">
+          <div className="flex items-center gap-3">
+            <ModularBlocks size="xs" variant="brand" />
+            <span className="text-charcoal font-medium uppercase tracking-wider">
+              Code&amp;Crumbs • Digital Product &amp; Engineering Studio
+            </span>
+          </div>
+
+          <div className="hidden md:flex items-center gap-6">
+            <span className="flex items-center gap-1.5">
+              <Compass className="h-3 w-3 text-burnt" />
+              <span>LOC: 28°36&apos;N 77°12&apos;E • UTC+05:30</span>
+            </span>
+            <span>•</span>
+            <span className="text-charcoal font-semibold">Q3/Q4 INTAKE OPEN</span>
+          </div>
+        </div>
+      </div>
 
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Left Column: Editorial Typography & Magnetic CTAs */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+          {/* Left Column: Oversized Editorial Typography & Magnetic CTAs */}
           <div className="lg:col-span-7 space-y-8">
-            {/* Top Status & Practice Indicator */}
+            {/* Status & Practice Indicator with Modular Block Glyph */}
             <TextReveal delay={0.1}>
               <div className="flex flex-wrap items-center gap-3">
-                <Badge variant="burnt" withDot className="font-mono text-xs">
-                  Creative Software & Technology Agency
-                </Badge>
-                <span className="hidden sm:inline-block text-xs font-mono text-charcoal-50">
-                  [EST. 2024 • SWISS GRID ARCHITECTURE]
+                <SectionIndexBadge number="00" label="Creative Software & Engineering Studio" />
+                <span className="hidden sm:inline-block text-[11px] font-mono text-charcoal-50 border-l border-border pl-3">
+                  Swiss Grid Layout • Strict Decoupling
                 </span>
               </div>
             </TextReveal>
@@ -42,7 +61,7 @@ export function HeroSection() {
             {/* Required Supporting Text */}
             <TextReveal delay={0.4}>
               <p className="editorial-lead max-w-xl text-charcoal-50 text-lg sm:text-xl leading-relaxed">
-                Code&Crumbs designs and develops intelligent software, AI-powered products and digital experiences for ambitious businesses.
+                Code&amp;Crumbs designs and develops intelligent software, AI-powered products and digital experiences for ambitious businesses.
               </p>
             </TextReveal>
 
@@ -77,26 +96,38 @@ export function HeroSection() {
               </div>
             </TextReveal>
 
-            {/* Engineering Protocol Micro-Strip */}
+            {/* Service Capabilities Coordinates Strip */}
             <TextReveal delay={0.7}>
               <div className="pt-8 border-t border-border grid grid-cols-2 sm:grid-cols-3 gap-6 text-xs font-mono">
                 <div>
-                  <span className="text-charcoal-50 block uppercase text-[10px]">Framework</span>
-                  <span className="text-charcoal font-semibold text-xs sm:text-sm">Next.js 15 App Router</span>
+                  <span className="text-charcoal-50 block uppercase text-[10px] tracking-wider mb-1">
+                    01 / Architecture
+                  </span>
+                  <span className="text-charcoal font-semibold text-xs sm:text-sm">
+                    Next.js 15 • Micro-Services
+                  </span>
                 </div>
                 <div>
-                  <span className="text-charcoal-50 block uppercase text-[10px]">3D Viewport</span>
-                  <span className="text-charcoal font-semibold text-xs sm:text-sm">React Three Fiber</span>
+                  <span className="text-charcoal-50 block uppercase text-[10px] tracking-wider mb-1">
+                    02 / Applied AI
+                  </span>
+                  <span className="text-charcoal font-semibold text-xs sm:text-sm">
+                    Autonomous Agent Swarms
+                  </span>
                 </div>
                 <div>
-                  <span className="text-charcoal-50 block uppercase text-[10px]">Availability</span>
-                  <span className="text-burnt font-semibold text-xs sm:text-sm">Select Q3/Q4 Briefs</span>
+                  <span className="text-charcoal-50 block uppercase text-[10px] tracking-wider mb-1">
+                    03 / Operational ERP
+                  </span>
+                  <span className="text-burnt font-semibold text-xs sm:text-sm">
+                    Sub-Second Ledger Sync
+                  </span>
                 </div>
               </div>
             </TextReveal>
           </div>
 
-          {/* Right Column: Interactive 3D Sculpture */}
+          {/* Right Column: Custom 3D Modular Sculpture with Architectural Framing */}
           <div className="lg:col-span-5 relative">
             <div className="relative border border-border bg-surface p-2 sm:p-4 shadow-card">
               {/* Corner Architectural Crop Marks */}
@@ -109,8 +140,11 @@ export function HeroSection() {
               <HeroSculpture />
 
               <div className="p-3 border-t border-border/70 bg-sand-50/70 flex items-center justify-between text-[11px] font-mono text-charcoal-50">
-                <span className="truncate">FIGURE 01: MODULAR COMPONENT MATRIX</span>
-                <span className="text-burnt shrink-0">[TACTILE 3D]</span>
+                <div className="flex items-center gap-2">
+                  <ModularBlocks size="xs" variant="indicator" activeBlock={2} />
+                  <span className="truncate">FIG 01: MODULAR COMPONENT MATRIX</span>
+                </div>
+                <span className="text-burnt shrink-0 font-medium">[TACTILE 3D]</span>
               </div>
             </div>
           </div>

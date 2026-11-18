@@ -1,20 +1,28 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans, Playfair_Display } from "next/font/google";
+import { Instrument_Sans, Instrument_Serif, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { SmoothScroll } from "@/components/layout/smooth-scroll";
 import { CustomCursor } from "@/components/ui/custom-cursor";
 
-const sans = Plus_Jakarta_Sans({
+const sans = Instrument_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
 });
 
-const serif = Playfair_Display({
+const serif = Instrument_Serif({
   subsets: ["latin"],
   variable: "--font-serif",
+  weight: "400",
+  display: "swap",
+});
+
+const mono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
@@ -30,7 +38,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Code&Crumbs — Digital Agency & Software Engineering Practice",
+    default: "Code&Crumbs — Digital Product & Engineering Studio",
     template: "%s | Code&Crumbs",
   },
   description:
@@ -156,7 +164,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${sans.variable} ${serif.variable}`}>
+    <html lang="en" className={`${sans.variable} ${serif.variable} ${mono.variable}`}>
       <head>
         <script
           type="application/ld+json"
