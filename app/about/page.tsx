@@ -5,6 +5,8 @@ import { Section } from "@/components/ui/section";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { ModularBlocks, SectionIndexBadge } from "@/components/ui/modular-blocks";
+import { AboutSculpture } from "@/components/3d/about-sculpture";
 import {
   ArrowUpRight,
   Compass,
@@ -96,33 +98,87 @@ export default function AboutPage() {
 
   return (
     <div className="w-full">
-      {/* 01. Hero Header - Exact Required Positioning */}
+      {/* 01. Hero Header - Asymmetric 12-Column Grid with 3D Studio Philosophy Sculpture */}
       <Section spacing="hero" withGrid divider="bottom">
-        <div className="max-w-4xl space-y-6">
-          <Badge variant="burnt" withDot className="font-mono text-xs">
-            Agency Positioning &amp; Identity
-          </Badge>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif text-charcoal tracking-tight leading-[1.08]">
-            We combine engineering, product thinking and AI capabilities to build{" "}
-            <span className="italic font-normal text-burnt">useful digital products.</span>
-          </h1>
-          <p className="editorial-lead text-charcoal-50 max-w-2xl">
-            Code&amp;Crumbs is an independent technology and product development agency. We architect intelligent software, scalable web systems, and high-performance digital platforms for ambitious businesses.
-          </p>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Left Column: Editorial Positioning & Telemetry */}
+          <div className="lg:col-span-7 space-y-6">
+            <SectionIndexBadge
+              number="04"
+              label="Agency Positioning & Studio Identity"
+            />
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-charcoal tracking-tight leading-[1.08]">
+              We combine engineering, product thinking and AI capabilities to build{" "}
+              <span className="italic font-normal text-burnt">useful digital products.</span>
+            </h1>
+            <p className="editorial-lead text-charcoal-50 max-w-2xl">
+              Code&amp;Crumbs is an independent technology and product development agency. We architect intelligent software, scalable web systems, and high-performance digital platforms for ambitious businesses.
+            </p>
 
-          <div className="flex flex-wrap items-center gap-4 pt-2">
-            <Link href="/contact">
-              <Button variant="primary" size="lg" className="gap-2 text-xs font-mono uppercase tracking-wider px-8">
-                <span>Build Your Project</span>
-                <ArrowUpRight className="h-4 w-4" />
-              </Button>
-            </Link>
-            <Link href="/process">
-              <Button variant="outline" size="lg" className="gap-2 text-xs font-mono uppercase text-charcoal-50 hover:text-charcoal">
-                <span>Explore Our Process</span>
-                <GitBranch className="h-4 w-4 text-burnt" />
-              </Button>
-            </Link>
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <Link href="/contact">
+                <Button variant="primary" size="lg" className="gap-2 text-xs font-mono uppercase tracking-wider px-8">
+                  <span>Build Your Project</span>
+                  <ArrowUpRight className="h-4 w-4" />
+                </Button>
+              </Link>
+              <Link href="/process">
+                <Button variant="outline" size="lg" className="gap-2 text-xs font-mono uppercase text-charcoal-50 hover:text-charcoal">
+                  <span>Explore Our Process</span>
+                  <GitBranch className="h-4 w-4 text-burnt" />
+                </Button>
+              </Link>
+            </div>
+
+            {/* Architectural Telemetry Strip */}
+            <div className="pt-6 border-t border-border/80 grid grid-cols-3 gap-4 font-mono text-xs">
+              <div>
+                <span className="text-charcoal-50 block uppercase text-[10px] tracking-wider mb-1">
+                  01 / Core Craft
+                </span>
+                <span className="text-charcoal font-semibold text-xs sm:text-sm">
+                  100% Senior Hands
+                </span>
+              </div>
+              <div>
+                <span className="text-charcoal-50 block uppercase text-[10px] tracking-wider mb-1">
+                  02 / Architecture
+                </span>
+                <span className="text-charcoal font-semibold text-xs sm:text-sm">
+                  Deterministic Code
+                </span>
+              </div>
+              <div>
+                <span className="text-charcoal-50 block uppercase text-[10px] tracking-wider mb-1">
+                  03 / IP Transfer
+                </span>
+                <span className="text-burnt font-semibold text-xs sm:text-sm">
+                  Full Code Ownership
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Framed 3D Studio Philosophy Sculpture */}
+          <div className="lg:col-span-5 relative">
+            <div className="relative border border-border bg-surface p-2 sm:p-4 shadow-card">
+              {/* Corner Architectural Crop Marks */}
+              <div className="absolute -top-1.5 -left-1.5 w-3 h-3 border-t-2 border-l-2 border-charcoal pointer-events-none" />
+              <div className="absolute -top-1.5 -right-1.5 w-3 h-3 border-t-2 border-r-2 border-charcoal pointer-events-none" />
+              <div className="absolute -bottom-1.5 -left-1.5 w-3 h-3 border-b-2 border-l-2 border-charcoal pointer-events-none" />
+              <div className="absolute -bottom-1.5 -right-1.5 w-3 h-3 border-b-2 border-r-2 border-charcoal pointer-events-none" />
+
+              {/* R3F 3D Canvas */}
+              <AboutSculpture />
+
+              <div className="p-3 border-t border-border/70 bg-sand-50/70 flex items-center justify-between text-[11px] font-mono text-charcoal-50">
+                <div className="flex items-center gap-2">
+                  <ModularBlocks size="xs" variant="indicator" activeBlock={4} />
+                  <span className="truncate">FIG 05: STUDIO PHILOSOPHY CORE</span>
+                </div>
+                <span className="text-burnt shrink-0 font-medium">[TACTILE 3D]</span>
+              </div>
+            </div>
           </div>
         </div>
       </Section>
