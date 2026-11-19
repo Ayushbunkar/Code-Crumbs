@@ -94,7 +94,7 @@ export function CalendarBookingCard() {
 
           <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
             <a
-              href="mailto:partner@codeandcrumbs.com?subject=Discovery%20Call%20Request"
+              href="mailto:codeandcrumbs.agency@gmail.com?subject=Discovery%20Call%20Request"
               className="w-full sm:w-auto flex-1"
             >
               <Button

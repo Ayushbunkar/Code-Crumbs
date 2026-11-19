@@ -56,9 +56,9 @@ export default function ContactPage() {
                   <ArrowUpRight className="h-4 w-4" />
                 </Button>
               </a>
-              <a href="mailto:hello@codeandcrumbs.com">
+              <a href="mailto:codeandcrumbs.agency@gmail.com">
                 <Button variant="outline" size="lg" className="gap-2 text-xs font-mono uppercase text-charcoal-50 hover:text-charcoal">
-                  <span>hello@codeandcrumbs.com</span>
+                  <span>codeandcrumbs.agency@gmail.com</span>
                   <Mail className="h-4 w-4 text-burnt" />
                 </Button>
               </a>
@@ -177,11 +177,11 @@ export default function ContactPage() {
               </p>
               <div className="pt-2">
                 <a
-                  href="mailto:partner@codeandcrumbs.com"
+                  href="mailto:codeandcrumbs.agency@gmail.com"
                   className="text-xs font-mono text-burnt font-semibold hover:underline flex items-center gap-1.5"
                 >
                   <Mail className="h-3.5 w-3.5" />
-                  <span>partner@codeandcrumbs.com</span>
+                  <span>codeandcrumbs.agency@gmail.com</span>
                 </a>
               </div>
             </Card>

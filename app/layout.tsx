@@ -102,7 +102,7 @@ const structuredData = {
         "Independent software design and engineering practice combining engineering rigor, product thinking, and applied AI.",
       contactPoint: {
         "@type": "ContactPoint",
-        email: "partner@codeandcrumbs.com",
+        email: "codeandcrumbs.agency@gmail.com",
         contactType: "Customer Service",
       },
       sameAs: [

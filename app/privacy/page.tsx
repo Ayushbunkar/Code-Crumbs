@@ -62,7 +62,7 @@ export default function PrivacyPage() {
             <p>
               For data access requests, deletion requests, or formal NDA execution prior to discovery calls, direct correspondence to:
             </p>
-            <p className="font-mono text-xs text-burnt">legal@codeandcrumbs.com</p>
+            <p className="font-mono text-xs text-burnt">codeandcrumbs.agency@gmail.com</p>
           </section>
         </div>
       </Section>

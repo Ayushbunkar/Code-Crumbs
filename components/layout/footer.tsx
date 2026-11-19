@@ -39,10 +39,10 @@ export function Footer() {
               </Button>
             </Link>
             <Link
-              href="mailto:partner@codeandcrumbs.com"
+              href="mailto:codeandcrumbs.agency@gmail.com"
               className="group inline-flex items-center gap-2 text-sm text-charcoal-50 hover:text-burnt transition-colors font-mono"
             >
-              <span>partner@codeandcrumbs.com</span>
+              <span>codeandcrumbs.agency@gmail.com</span>
               <ArrowUpRight className="h-3.5 w-3.5 text-burnt transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </div>

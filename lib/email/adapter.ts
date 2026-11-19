@@ -122,8 +122,8 @@ export async function sendTransactionalEmail(payload: EmailPayload): Promise<Sen
  */
 export function formatAgencyNotificationEmail(ctx: EnquiryEmailContext): EmailPayload {
   const { reference, timestamp, enquiry } = ctx;
-  const to = process.env.CONTACT_EMAIL || "partner@codeandcrumbs.com";
-  const from = process.env.CONTACT_FROM_EMAIL || "intake@codeandcrumbs.com";
+  const to = process.env.CONTACT_EMAIL || "codeandcrumbs.agency@gmail.com";
+  const from = process.env.CONTACT_FROM_EMAIL || "codeandcrumbs.agency@gmail.com";
 
   const subject = `[NEW BRIEF ${reference}] ${enquiry.companyName || enquiry.fullName} — ${enquiry.projectTypes.slice(0, 2).join(", ")}`;
 
@@ -247,8 +247,8 @@ Direct transmission via Code&Crumbs Intake Engine.
 export function formatClientConfirmationEmail(ctx: EnquiryEmailContext): EmailPayload {
   const { reference, enquiry } = ctx;
   const to = enquiry.businessEmail;
-  const from = process.env.CONTACT_FROM_EMAIL || "partner@codeandcrumbs.com";
-  const partnerEmail = process.env.CONTACT_EMAIL || "partner@codeandcrumbs.com";
+  const from = process.env.CONTACT_FROM_EMAIL || "codeandcrumbs.agency@gmail.com";
+  const partnerEmail = process.env.CONTACT_EMAIL || "codeandcrumbs.agency@gmail.com";
 
   const subject = `Your Project Brief has been received [${reference}] — Code&Crumbs`;
 

@@ -256,7 +256,7 @@ async function generateCompanyIntroPDF() {
     font: fontBold,
     color: COLOR_BURNT,
   });
-  page2.drawText("Direct Inquiries: partner@codeandcrumbs.com  •  Configurator: https://codeandcrumbs.com/contact", {
+  page2.drawText("Direct Inquiries: codeandcrumbs.agency@gmail.com  •  Configurator: https://codeandcrumbs.com/contact", {
     x: margin + 16,
     y: y - 34,
     size: 8,

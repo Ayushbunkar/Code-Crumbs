@@ -126,10 +126,10 @@ NEXT_PUBLIC_SITE_URL=https://codeandcrumbs.com
 NEXT_PUBLIC_CALENDAR_URL=https://cal.com/codeandcrumbs/discovery
 
 # Lead Intake Recipient
-CONTACT_EMAIL=partner@codeandcrumbs.com
+CONTACT_EMAIL=codeandcrumbs.agency@gmail.com
 
 # Sender Address
-CONTACT_FROM_EMAIL=intake@codeandcrumbs.com
+CONTACT_FROM_EMAIL=codeandcrumbs.agency@gmail.com
 
 # Transactional Email Provider ("resend" | "postmark" | "smtp" | "console")
 EMAIL_PROVIDER=resend

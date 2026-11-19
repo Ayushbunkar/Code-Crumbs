@@ -62,7 +62,7 @@ export default function TermsPage() {
             <p>
               To request a copy of our standard Master Services Agreement or discuss bespoke enterprise contracting terms:
             </p>
-            <p className="font-mono text-xs text-burnt">legal@codeandcrumbs.com</p>
+            <p className="font-mono text-xs text-burnt">codeandcrumbs.agency@gmail.com</p>
           </section>
         </div>
       </Section>

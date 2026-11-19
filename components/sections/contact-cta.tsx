@@ -41,14 +41,14 @@ export function ContactCta() {
               </Button>
             </Link>
 
-            <a href="mailto:partner@codeandcrumbs.com">
+            <a href="mailto:codeandcrumbs.agency@gmail.com">
               <Button
                 variant="outline"
                 size="lg"
                 className="font-mono text-xs uppercase gap-2 py-4 px-7 border-border hover:border-charcoal/40"
               >
                 <Mail className="h-4 w-4 text-burnt" />
-                <span>partner@codeandcrumbs.com</span>
+                <span>codeandcrumbs.agency@gmail.com</span>
               </Button>
             </a>
           </div>
