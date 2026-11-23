@@ -152,26 +152,20 @@ export function PortfolioSculpture() {
 
   if (!mounted) {
     return (
-      <div className="w-full h-[360px] sm:h-[440px] flex items-center justify-center bg-surface border border-border">
-        <div className="h-6 w-6 border-2 border-burnt border-t-transparent animate-spin rounded-full" />
-      </div>
-    );
-  }
-
-  if (prefersReducedMotion) {
-    return (
-      <div className="w-full h-[360px] sm:h-[440px]">
-        <StaticFallback />
+      <div className="w-full h-[420px] sm:h-[500px] lg:h-[560px] flex items-center justify-center border border-border/40 bg-sand-50/50">
+        <div className="text-center font-mono text-xs text-charcoal-50 animate-pulse">
+          [Initializing R3F Spatial Scene...]
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="w-full h-[360px] sm:h-[440px] relative overflow-hidden select-none">
+    <div className="w-full h-[420px] sm:h-[500px] lg:h-[560px] relative overflow-hidden select-none">
       <Canvas
         camera={{ position: [0, 0.4, 5.2], fov: 42 }}
         shadows
-        dpr={isMobile ? [1, 1.2] : [1, 1.5]}
+        dpr={isMobile ? 1 : [1, 1.5]}
         gl={{
           antialias: true,
           alpha: true,
@@ -194,21 +188,28 @@ export function PortfolioSculpture() {
           maxPolarAngle={(3 * Math.PI) / 4}
         />
 
-        <ambientLight intensity={0.95} />
+        <ambientLight intensity={1.1} color="#F4F0E8" />
         <directionalLight
-          position={[5, 8, 5]}
-          intensity={1.8}
+          position={[6, 8, 6]}
+          intensity={2.0}
           castShadow
           shadow-mapSize={[1024, 1024]}
           shadow-bias={-0.0001}
+          color="#FFFDF9"
         />
-        <directionalLight position={[-5, -2, -3]} intensity={0.5} color="#DDD4C2" />
-        <pointLight position={[1, 2, 2]} intensity={0.9} color="#E85D35" />
+        <directionalLight position={[-6, -4, -4]} intensity={1.4} color="#E85D35" />
+        <directionalLight position={[0, -5, 2]} intensity={0.4} color="#77736B" />
 
         <Float speed={1.2} rotationIntensity={0.2} floatIntensity={0.3}>
           <ProductionLattice isMobile={isMobile} />
         </Float>
       </Canvas>
+
+      {/* Viewport Micro-HUD Overlay with Touch Guidance */}
+      <div className="absolute bottom-4 right-4 pointer-events-none font-mono text-[10px] text-charcoal-50 bg-sand/80 px-2.5 py-1 border border-border/80 backdrop-blur-sm flex items-center gap-2">
+        <span className="h-1.5 w-1.5 rounded-full bg-burnt animate-pulse" />
+        <span>TOUCH / DRAG TO ROTATE • 60 FPS</span>
+      </div>
     </div>
   );
 }

@@ -153,19 +153,10 @@ function StaticPhilosophyFallback() {
 
 export function AboutSculpture() {
   const [mounted, setMounted] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-
-    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReducedMotion(motionQuery.matches);
-
-    const handleMotionChange = (e: MediaQueryListEvent) => {
-      setPrefersReducedMotion(e.matches);
-    };
-    motionQuery.addEventListener("change", handleMotionChange);
 
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
@@ -174,25 +165,23 @@ export function AboutSculpture() {
     window.addEventListener("resize", checkMobile);
 
     return () => {
-      motionQuery.removeEventListener("change", handleMotionChange);
       window.removeEventListener("resize", checkMobile);
     };
   }, []);
 
   if (!mounted) {
-    return <div className="w-full h-[400px] lg:h-[480px] bg-sand-100/30 animate-pulse rounded-none" />;
-  }
-
-  if (prefersReducedMotion) {
     return (
-      <div className="w-full h-[400px] lg:h-[480px]">
-        <StaticPhilosophyFallback />
+      <div className="w-full h-[420px] sm:h-[500px] lg:h-[560px] flex items-center justify-center bg-sand-50/50 border border-border/50">
+        <div className="flex items-center gap-2 font-mono text-[11px] text-charcoal-50 tracking-widest uppercase">
+          <span className="h-2 w-2 rounded-full bg-burnt animate-ping" />
+          <span>INITIALIZING SPATIAL SCENE...</span>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="relative w-full h-[420px] lg:h-[490px] bg-sand-50/50 border border-sand-200/80 overflow-hidden group">
+    <div className="w-full h-[420px] sm:h-[500px] lg:h-[560px] relative overflow-hidden select-none">
       {/* Precision Editorial Crop Marks */}
       <span className="absolute top-2 left-2 text-[9px] font-mono text-charcoal-40 select-none z-10">
         ⌜ PHILOSOPHY CORE // 05 ⌝
@@ -210,10 +199,14 @@ export function AboutSculpture() {
 
       {/* R3F Canvas */}
       <Canvas
-        camera={{ position: [0, 0.4, 4.2], fov: 42 }}
+        camera={{ position: [0, 0.4, 4.8], fov: 42 }}
         shadows
-        gl={{ antialias: true, alpha: true }}
-        dpr={[1, 2]}
+        dpr={isMobile ? 1 : [1, 1.5]}
+        gl={{
+          antialias: true,
+          alpha: true,
+          powerPreference: "high-performance",
+        }}
         className="w-full h-full cursor-grab active:cursor-grabbing touch-none"
         style={{ touchAction: "none" }}
       >
@@ -231,27 +224,27 @@ export function AboutSculpture() {
           maxPolarAngle={(3 * Math.PI) / 4}
         />
 
-        <ambientLight intensity={0.92} />
+        <ambientLight intensity={1.1} color="#F4F0E8" />
         <directionalLight
-          position={[5, 7, 5]}
-          intensity={1.4}
+          position={[6, 8, 6]}
+          intensity={2.0}
           castShadow
-          shadow-mapSize-width={1024}
-          shadow-mapSize-height={1024}
+          shadow-mapSize={[1024, 1024]}
+          shadow-bias={-0.0001}
+          color="#FFFDF9"
         />
-        <directionalLight position={[-5, 3, -2]} intensity={0.5} color="#FFF2E2" />
-        <pointLight position={[0, -2, 2]} intensity={0.3} color="#E85D35" />
+        <directionalLight position={[-6, -4, -4]} intensity={1.4} color="#E85D35" />
+        <directionalLight position={[0, -5, 2]} intensity={0.4} color="#77736B" />
 
         <Float speed={1.2} rotationIntensity={0.2} floatIntensity={0.3}>
           <PhilosophyMonolith isMobile={isMobile} />
         </Float>
       </Canvas>
 
-      {/* Subtle bottom caption */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 pointer-events-none text-center">
-        <p className="font-mono text-[10px] tracking-widest text-charcoal-40 uppercase bg-sand-50/80 px-3 py-0.5 border border-sand-200/50 backdrop-blur-xs">
-          FIG 05: STUDIO PHILOSOPHY CORE · [TOUCH / DRAG TO ROTATE]
-        </p>
+      {/* Viewport Micro-HUD Overlay with Touch Guidance */}
+      <div className="absolute bottom-4 right-4 pointer-events-none font-mono text-[10px] text-charcoal-50 bg-sand/80 px-2.5 py-1 border border-border/80 backdrop-blur-sm flex items-center gap-2">
+        <span className="h-1.5 w-1.5 rounded-full bg-burnt animate-pulse" />
+        <span>TOUCH / DRAG TO ROTATE • 60 FPS</span>
       </div>
     </div>
   );
