@@ -2,7 +2,7 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Edges, Float } from "@react-three/drei";
+import { Edges, Float, OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 
 /**
@@ -21,21 +21,6 @@ function IntakeBeacon({ isMobile }: { isMobile: boolean }) {
 
   useFrame((state, delta) => {
     if (!groupRef.current) return;
-
-    // Smooth mouse parallax damping
-    const targetX = isMobile ? 0 : state.pointer.x * 0.44;
-    const targetY = isMobile ? 0 : -state.pointer.y * 0.32;
-
-    groupRef.current.rotation.y = THREE.MathUtils.lerp(
-      groupRef.current.rotation.y,
-      targetX + state.clock.getElapsedTime() * 0.08,
-      0.05
-    );
-    groupRef.current.rotation.x = THREE.MathUtils.lerp(
-      groupRef.current.rotation.x,
-      targetY + 0.1,
-      0.05
-    );
 
     // Harmonic hovering respiration
     groupRef.current.position.y = Math.sin(state.clock.getElapsedTime() * 0.92) * 0.08;
@@ -227,8 +212,23 @@ export function ContactSculpture() {
         shadows
         gl={{ antialias: true, alpha: true }}
         dpr={[1, 2]}
-        className="w-full h-full cursor-grab active:cursor-grabbing"
+        className="w-full h-full cursor-grab active:cursor-grabbing touch-none"
+        style={{ touchAction: "none" }}
       >
+        <OrbitControls
+          makeDefault
+          enableZoom={false}
+          enablePan={false}
+          enableRotate={true}
+          autoRotate={true}
+          autoRotateSpeed={0.8}
+          enableDamping={true}
+          dampingFactor={0.06}
+          rotateSpeed={0.9}
+          minPolarAngle={Math.PI / 4}
+          maxPolarAngle={(3 * Math.PI) / 4}
+        />
+
         <ambientLight intensity={0.94} />
         <directionalLight
           position={[5, 7, 5]}
@@ -248,7 +248,7 @@ export function ContactSculpture() {
       {/* Subtle bottom caption */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 pointer-events-none text-center">
         <p className="font-mono text-[10px] tracking-widest text-charcoal-40 uppercase bg-sand-50/80 px-3 py-0.5 border border-sand-200/50 backdrop-blur-xs">
-          FIG 06: TECHNICAL INTAKE &amp; RELAY NODE · [TACTILE 3D]
+          FIG 06: TECHNICAL INTAKE &amp; RELAY NODE · [TOUCH / DRAG TO ROTATE]
         </p>
       </div>
     </div>

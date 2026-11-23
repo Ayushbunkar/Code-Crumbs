@@ -2,7 +2,7 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Edges, Float } from "@react-three/drei";
+import { Edges, Float, OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 
 /**
@@ -17,21 +17,6 @@ function ProductionLattice({ isMobile }: { isMobile: boolean }) {
 
   useFrame((state, delta) => {
     if (!groupRef.current) return;
-
-    // Smooth mouse parallax interpolation
-    const targetX = isMobile ? 0 : state.pointer.x * 0.4;
-    const targetY = isMobile ? 0 : -state.pointer.y * 0.3;
-
-    groupRef.current.rotation.y = THREE.MathUtils.lerp(
-      groupRef.current.rotation.y,
-      targetX + state.clock.getElapsedTime() * 0.07,
-      0.05
-    );
-    groupRef.current.rotation.x = THREE.MathUtils.lerp(
-      groupRef.current.rotation.x,
-      targetY + 0.12,
-      0.05
-    );
 
     // Subtle harmonic floating motion
     groupRef.current.position.y = Math.sin(state.clock.getElapsedTime() * 0.9) * 0.06;
@@ -192,7 +177,23 @@ export function PortfolioSculpture() {
           alpha: true,
           powerPreference: "high-performance",
         }}
+        className="w-full h-full cursor-grab active:cursor-grabbing touch-none"
+        style={{ touchAction: "none" }}
       >
+        <OrbitControls
+          makeDefault
+          enableZoom={false}
+          enablePan={false}
+          enableRotate={true}
+          autoRotate={true}
+          autoRotateSpeed={0.8}
+          enableDamping={true}
+          dampingFactor={0.06}
+          rotateSpeed={0.9}
+          minPolarAngle={Math.PI / 4}
+          maxPolarAngle={(3 * Math.PI) / 4}
+        />
+
         <ambientLight intensity={0.95} />
         <directionalLight
           position={[5, 8, 5]}

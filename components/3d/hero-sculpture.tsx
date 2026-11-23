@@ -2,7 +2,7 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Edges, Float } from "@react-three/drei";
+import { Edges, Float, OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 
 /**
@@ -16,21 +16,6 @@ function ArchitecturalStructure({ isMobile }: { isMobile: boolean }) {
 
   useFrame((state, delta) => {
     if (!groupRef.current) return;
-
-    // Smooth mouse parallax interpolation
-    const targetX = isMobile ? 0 : state.pointer.x * 0.45;
-    const targetY = isMobile ? 0 : -state.pointer.y * 0.35;
-
-    groupRef.current.rotation.y = THREE.MathUtils.lerp(
-      groupRef.current.rotation.y,
-      targetX + state.clock.getElapsedTime() * 0.08,
-      0.05
-    );
-    groupRef.current.rotation.x = THREE.MathUtils.lerp(
-      groupRef.current.rotation.x,
-      targetY + 0.15,
-      0.05
-    );
 
     // Subtle breathing displacement
     groupRef.current.position.y = Math.sin(state.clock.getElapsedTime() * 0.8) * 0.08;
@@ -164,8 +149,24 @@ export function HeroSculpture() {
           powerPreference: "high-performance",
           alpha: true,
         }}
-        className="w-full h-full cursor-grab active:cursor-grabbing"
+        className="w-full h-full cursor-grab active:cursor-grabbing touch-none"
+        style={{ touchAction: "none" }}
       >
+        {/* Interactive 3D Touch & Mouse Orbit Controls */}
+        <OrbitControls
+          makeDefault
+          enableZoom={false}
+          enablePan={false}
+          enableRotate={true}
+          autoRotate={true}
+          autoRotateSpeed={0.8}
+          enableDamping={true}
+          dampingFactor={0.06}
+          rotateSpeed={0.9}
+          minPolarAngle={Math.PI / 4}
+          maxPolarAngle={(3 * Math.PI) / 4}
+        />
+
         {/* Controlled Architectural Lighting Setup */}
         <ambientLight intensity={1.2} color="#F4F0E8" />
         <directionalLight
@@ -193,10 +194,10 @@ export function HeroSculpture() {
         <ArchitecturalStructure isMobile={isMobile} />
       </Canvas>
 
-      {/* Viewport Micro-HUD Overlay */}
+      {/* Viewport Micro-HUD Overlay with Touch Guidance */}
       <div className="absolute bottom-4 right-4 pointer-events-none font-mono text-[10px] text-charcoal-50 bg-sand/80 px-2.5 py-1 border border-border/80 backdrop-blur-sm flex items-center gap-2">
         <span className="h-1.5 w-1.5 rounded-full bg-burnt animate-pulse" />
-        <span>R3F SPATIAL MATRIX • 60 FPS</span>
+        <span>TOUCH / DRAG TO ROTATE • 60 FPS</span>
       </div>
     </div>
   );
