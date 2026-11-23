@@ -13,10 +13,10 @@ const sectionVariants = cva("relative w-full overflow-hidden", {
     },
     spacing: {
       none: "py-0",
-      sm: "py-12 sm:py-16",
-      md: "py-16 sm:py-24",
-      lg: "py-20 sm:py-32",
-      hero: "pt-24 sm:pt-32 pb-16 sm:pb-24",
+      sm: "py-8 sm:py-12",
+      md: "py-12 sm:py-16",
+      lg: "py-14 sm:py-20",
+      hero: "pt-6 sm:pt-8 md:pt-10 pb-12 sm:pb-16",
     },
     divider: {
       none: "",

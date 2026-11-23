@@ -11,7 +11,7 @@ import { ArrowUpRight, Terminal, Layers } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative w-full pt-10 sm:pt-16 pb-16 sm:pb-24 overflow-hidden border-b border-border bg-sand">
+    <section className="relative w-full pt-6 sm:pt-8 md:pt-10 pb-12 sm:pb-16 overflow-hidden border-b border-border bg-sand">
       {/* Background Architectural Grid Lines */}
       <div className="absolute inset-0 grid-lines pointer-events-none opacity-30" />
 

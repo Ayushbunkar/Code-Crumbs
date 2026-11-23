@@ -64,11 +64,11 @@ export function Header() {
         "sticky top-0 z-50 w-full transition-all duration-200 border-b",
         scrolled
           ? "border-border bg-sand/95 backdrop-blur-md shadow-subtle py-0"
-          : "border-border/60 bg-sand/90 backdrop-blur-sm py-1"
+          : "border-border/60 bg-sand/90 backdrop-blur-sm py-0"
       )}
     >
       <Container size="wide">
-        <div className="flex h-18 sm:h-20 items-center justify-between">
+        <div className="flex h-16 sm:h-18 items-center justify-between">
           {/* Brand Identity / Wordmark */}
           <div className="flex items-center gap-6">
             <Logo size="md" withSubtext={false} />
