@@ -1,28 +1,31 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Sans, Instrument_Serif, IBM_Plex_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, Playfair_Display, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { SmoothScroll } from "@/components/layout/smooth-scroll";
 import { CustomCursor } from "@/components/ui/custom-cursor";
 
-const sans = Instrument_Sans({
+const sans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
+  weight: ["300", "400", "500", "600", "700", "800"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
-const serif = Instrument_Serif({
+const serif = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-serif",
-  weight: "400",
+  weight: ["400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
-const mono = IBM_Plex_Mono({
+const mono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 

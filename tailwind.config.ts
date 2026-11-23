@@ -48,10 +48,10 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-sans)", "system-ui", "-apple-system", "sans-serif"],
-        serif: ["var(--font-serif)", "Georgia", "serif"],
-        display: ["var(--font-serif)", "Georgia", "serif"],
-        mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+        sans: ["var(--font-sans)", "Plus Jakarta Sans", "Inter", "system-ui", "-apple-system", "sans-serif"],
+        serif: ["var(--font-serif)", "Playfair Display", "Georgia", "serif"],
+        display: ["var(--font-serif)", "Playfair Display", "Georgia", "serif"],
+        mono: ["var(--font-mono)", "JetBrains Mono", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
       boxShadow: {
         'subtle': '0 1px 2px 0 rgba(23, 23, 23, 0.04)',
