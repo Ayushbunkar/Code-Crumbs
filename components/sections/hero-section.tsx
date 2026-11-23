@@ -7,34 +7,13 @@ import { MagneticButton } from "@/components/ui/magnetic-button";
 import { TextReveal } from "@/components/ui/text-reveal";
 import { HeroSculpture } from "@/components/3d/hero-sculpture";
 import { ModularBlocks, SectionIndexBadge } from "@/components/ui/modular-blocks";
-import { ArrowUpRight, Compass, Terminal, Layers } from "lucide-react";
+import { ArrowUpRight, Terminal, Layers } from "lucide-react";
 
 export function HeroSection() {
   return (
     <section className="relative w-full pt-10 sm:pt-16 pb-16 sm:pb-24 overflow-hidden border-b border-border bg-sand">
       {/* Background Architectural Grid Lines */}
       <div className="absolute inset-0 grid-lines pointer-events-none opacity-30" />
-
-      {/* Subtle Top Metadata Bar */}
-      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 mb-8 sm:mb-12">
-        <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-border/80 text-[11px] font-mono text-charcoal-50">
-          <div className="flex items-center gap-3">
-            <ModularBlocks size="xs" variant="brand" />
-            <span className="text-charcoal font-medium uppercase tracking-wider">
-              Code&amp;Crumbs • Digital Product &amp; Engineering Studio
-            </span>
-          </div>
-
-          <div className="hidden md:flex items-center gap-6">
-            <span className="flex items-center gap-1.5">
-              <Compass className="h-3 w-3 text-burnt" />
-              <span>LOC: 28°36&apos;N 77°12&apos;E • UTC+05:30</span>
-            </span>
-            <span>•</span>
-            <span className="text-charcoal font-semibold">Q3/Q4 INTAKE OPEN</span>
-          </div>
-        </div>
-      </div>
 
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
